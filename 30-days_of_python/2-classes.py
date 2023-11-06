@@ -20,21 +20,19 @@ the class should be equipped with parameterless methods called next_second() and
  incrementing the time stored inside the objects by +1/-1 second respectively.
 Use the following hints:
 
-all object properties should be private;
 consider writing a separate function (not method!) to format the time string
 '''
+def time_format(value):
+    if value < 10:
+        value = '0'+ str(value)
+    return value
 class Timer:
     def __init__(self, hours=0, minutes=0, seconds=0):
         self.hours=hours
         self.minutes=minutes
         self.seconds=seconds
-    def time_format(self,  hours, minutes, seconds):
-        f_hours = str(hours).rjust(2,'0')
-        f_minutes = str(minutes).rjust(2, '0')
-        f_seconds = str(seconds).rjust(2, '0')
-        return f'{f_hours}:{f_minutes}:{f_seconds}'
     def __str__(self):
-        return self.time_format(self.hours, self.minutes, self.seconds)
+        return f'{time_format(self.hours)}:{time_format(self.minutes)}:{time_format(self.seconds)}'
 
     def next_second(self):
         seconds=self.seconds+1
@@ -49,7 +47,6 @@ class Timer:
                 if hours >= 24:
                     hours=0
         return Timer(hours, minutes, seconds)
-
     def prev_second(self):
         seconds = self.seconds - 1
         minutes = self.minutes
