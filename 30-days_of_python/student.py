@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module contains one class"""
+
+
 class Student:
     """
     class defines students admission,
@@ -14,7 +16,7 @@ class Student:
         self.yob = yob
 
     def print_details(self):
-        """ class takes the attributes and creates a dictionary
+        """ method takes the attributes and creates a dictionary
         out of them.
         returns the dictionary
         """
