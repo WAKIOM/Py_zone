@@ -42,6 +42,11 @@ student2 = Student(10422, "James", "Joe", 2001)
 student3 = Student(10688, "Carl", "Toes", 2002)
 students = [student1, student2, student3]
 for student in students:
+    print("name:", student.first_name, student.last_name)
     for key, value in student.print_details().items():
+        if value == student.first_name:
+            continue
+        if value == student.last_name:
+            continue
         print("{}: {}".format(key, value))
     print("#######")
